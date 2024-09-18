@@ -32,12 +32,29 @@ export default {
       type: 'number',
       title: 'Price',
     },
-    // {
-    //   name: 'price_id',
-    //   type: 'string',
-    //   title: 'Stripe Price ID',
-    // },
 
+    // New field for "sponsored" property
+    {
+      name: 'sponsored',
+      type: 'boolean',
+      title: 'Sponsored Product',
+      description: 'Is this product sponsored?',
+    },
+    // New field for "on sale" property
+    {
+      name: 'onSale',
+      type: 'boolean',
+      title: 'Product On Sale',
+      description: 'Is this product currently on sale?',
+    },
+   
+    {
+      name: 'salePrice',
+      type: 'number',
+      title: 'Sale Price',
+      description: 'Discounted price if the product is on sale',
+      hidden: ({document}:any) => !document?.onSale,
+    },
     {
       name: 'category',
       title: 'Product category',
