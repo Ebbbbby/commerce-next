@@ -3,15 +3,19 @@ import Image from "next/image";
 import Newest from "./components/Newest";
 import { CarouselDemo } from "./components/Carousel";
 import Footer from "./components/Footer";
+import Sponsored from "./components/Sponsored";
+import FlashSales from "./components/FlashSales";
 
 export default function Home() {
   return (
-    <div className=" bg-white sm:pb-8 lg:pb-12">
+    <div className=" bg-white sm:pb-8">
       <CarouselDemo />
 
       {/* <Hero/> */}
       <Newest />
-   
+      <Sponsored/>
+      <FlashSales/>
+
     </div>
   );
 }

@@ -12,7 +12,21 @@ export default {
       name: 'images',
       type: 'array',
       title: 'Product Images',
-      of: [{type: 'image'}],
+      of: [
+        {type: 'image', title: 'Upload Image'}, // For local uploads
+        {
+          type: 'object',
+          title: 'Image URL',
+          fields: [
+            {
+              name: 'url',
+              type: 'url',
+              title: 'Image URL',
+              validation: (Rule:any) => Rule.uri({allowRelative: true, scheme: ['http', 'https']}),
+            },
+          ],
+        },
+      ],
     },
     {
       name: 'description',
@@ -47,13 +61,13 @@ export default {
       title: 'Product On Sale',
       description: 'Is this product currently on sale?',
     },
-   
+
     {
       name: 'salePrice',
       type: 'number',
       title: 'Sale Price',
       description: 'Discounted price if the product is on sale',
-      hidden: ({document}:any) => !document?.onSale,
+      hidden: ({document}: any) => !document?.onSale,
     },
     {
       name: 'category',

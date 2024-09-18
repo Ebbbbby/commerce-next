@@ -6,11 +6,11 @@ import { usePathname } from "next/navigation";
 
 
 const links = [
-  { name: "Electronics", href: "/Electronics"  },
-  { name: "Home & Kitchen", href: "/HomeAndKitchen" },
-  { name: "Kids & Toys", href: "/KidsAndToys" },
-  { name: "Beauty & Personal Care", href: "/BeautyAndPersonal" },
-  { name: "Fashion", href: "/Fashion" },
+  { name: "Men", href: "/Men"  },
+  { name: "Women", href: "/Women" },
+  { name: "Teans ", href: "/Teens" },
+  { name: "Kiddies", href: "/Kiddies" },
+  { name: "Sport Gears", href: "/SportsGears" },
 
 ];
 
@@ -41,23 +41,21 @@ export default function Categories() {
     </header>
   );
 }
-import { FaTv, FaHome, FaChild, FaHeartbeat, FaTshirt } from "react-icons/fa";
+import { FaChild,  FaRunning } from "react-icons/fa";
+import { IoMan, IoWoman } from "react-icons/io5";
+import { MdOutlineGirl } from "react-icons/md";
+
 
 const mobilelinks = [
-  { name: "Electronics", href: "/Electronics", icon: FaTv },
-  { name: "Home", href: "/HomeAndKitchen", icon: FaHome },
-  { name: "Kiddies", href: "/KidsAndToys", icon: FaChild },
-  {
-    name: "Beauty",
-    href: "/BeautyAndPersonal",
-    icon: FaHeartbeat,
-  },
-  { name: "Fashion", href: "/Fashion", icon: FaTshirt },
+  { name: "Men", href: "/Men", icon: IoMan },
+  { name: "Women", href: "/Women", icon: IoWoman },
+  { name: "Teens ", href: "/Teens", icon: MdOutlineGirl },
+  { name: "Kiddies", href: "/Kiddies", icon: FaChild },
+  { name: "Sport Gears", href: "/SportsGears", icon: FaRunning },
 ];
 
 export function MobileCategories() {
   const pathName = usePathname();
-
   return (
     <header className="w-full bg-orange-600 py-2 lg:py-4">
       <div className="sm:px-6 lg:max-w-7xl sm:w-full relative">
