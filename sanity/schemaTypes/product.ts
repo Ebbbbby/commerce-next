@@ -12,21 +12,7 @@ export default {
       name: 'images',
       type: 'array',
       title: 'Product Images',
-      of: [
-        {type: 'image', title: 'Upload Image'}, // For local uploads
-        {
-          type: 'object',
-          title: 'Image URL',
-          fields: [
-            {
-              name: 'url',
-              type: 'url',
-              title: 'Image URL',
-              validation: (Rule:any) => Rule.uri({allowRelative: true, scheme: ['http', 'https']}),
-            },
-          ],
-        },
-      ],
+      of: [{type: 'image'}],
     },
     {
       name: 'description',
@@ -47,14 +33,12 @@ export default {
       title: 'Price',
     },
 
-    // New field for "sponsored" property
     {
       name: 'sponsored',
       type: 'boolean',
       title: 'Sponsored Product',
       description: 'Is this product sponsored?',
     },
-    // New field for "on sale" property
     {
       name: 'onSale',
       type: 'boolean',
@@ -81,3 +65,18 @@ export default {
     },
   ],
 }
+
+// export default {
+//   name: 'product',
+
+//   type: 'document',
+//   title: 'Product',
+//   fields: [
+//     {name: 'name', type: 'string', title: 'Name of Product'},
+//     {name: 'images', type: 'array', title: 'Product Images', of: [{type: 'image'}]},
+//     {name: 'description', type: 'text', title: 'Description of the product'},
+//     {name: 'slug', type: 'slug', title: 'product slug', options: {source: 'name'}},
+//     {name: 'price', type: 'number', title: 'Price'},
+//     {name: 'category', title: 'Product category', type: 'reference', to: [{type: 'category'}]},
+//   ],
+// }

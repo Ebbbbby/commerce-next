@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { client } from "../lib/sanity";
 import { Products } from "../interface";
 import Link from "next/link";
@@ -8,7 +8,7 @@ async function getData() {
   //fetched 4 products from sanity. You can query sanity by clicking on vision. Know more about order using the sanity cheat sheet
   const query = `*[_type == "product" && sponsored == true]{
   _id,
-    "imageUrl": coalesce(images[0].asset->url, images[0].url),
+  "imageUrl": images[0].asset->url,
     price,
     name,
     "slug": slug.current,
@@ -18,14 +18,14 @@ async function getData() {
   return data;
 }
 const Sponsored = async () => {
-    const data: Products[] = await getData();
+  const data: Products[] = await getData();
 
   return (
     <>
-      <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+      <div className=" bg-white">
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+          <div className="flex justify-between items-center bg-gray-300 py-2 px-1 text-white rounded-t-md">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-800">
               Sponsored Products
             </h2>
             <Link
@@ -39,14 +39,14 @@ const Sponsored = async () => {
               </span>
             </Link>
           </div>
-          <div className="mt-6 grid grid-cols-1 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {data.map((product) => (
+          <div className="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            {data?.map((product) => (
               <Link href={`/product/${product.slug}`} key={product._id}>
                 <div
                   key={product._id}
-                  className="group relative overflow-hidden rounded-md shadow-md mt-4"
+                  className="group relative overflow-hidden shadow-md"
                 >
-                  <div className=" aspect-auto w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75">
+                  <div className=" aspect-auto w-full overflow-hidden bg-white group-hover:opacity-75">
                     <Image
                       src={product?.imageUrl}
                       alt="product-image"
@@ -54,7 +54,8 @@ const Sponsored = async () => {
                       width={300}
                       height={300}
                     />
-                    <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-transparent to-black opacity-50"></div>
+
+                    <div className="absolute top-0 bottom-0 left-0 right-0 "></div>
                     <div className="mt-4 p-2 flex items-center justify-between">
                       <div>
                         <h3 className="text-sm font-medium text-gray-900">
@@ -64,7 +65,7 @@ const Sponsored = async () => {
                           {product.categoryName}
                         </p>
                       </div>
-                      <p className="text-sm font-medium text-gray-900">
+                      <p className="font-bold tracking-wide text-lg text-gray-600">
                         ${product.price}
                       </p>
                     </div>
@@ -72,25 +73,11 @@ const Sponsored = async () => {
                 </div>
               </Link>
             ))}
-            {/* {data.map((product) => (
-            <div key={product?._id} className="group relative">
-              <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
-                <Image
-                  src={product?.imageUrl}
-                  alt="product-image"
-                  className="w-full h-full object-center object-cover lg:h-full lg:w-full "
-                  width={300}
-                  height={300}
-                />
-              </div>
-            </div>
-          ))} */}
           </div>
         </div>
       </div>
-  
     </>
   );
-}
+};
 
-export default Sponsored
+export default Sponsored;

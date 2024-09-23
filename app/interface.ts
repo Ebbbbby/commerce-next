@@ -1,11 +1,13 @@
 export interface Products {
   _id: string;
   name: string;
-  imageUrl: string
+  imageUrl: string;
   price: number;
   categoryName: string;
-  slug:string;
-
+  slug: string;
+  sponsored?: boolean;
+  onSale?: boolean;
+  salePrice?: number
 }
 
 export interface SingleProduct {

@@ -2,7 +2,6 @@ import Image from "next/image";
 // import Hero from "./components/Hero";
 import Newest from "./components/Newest";
 import { CarouselDemo } from "./components/Carousel";
-import Footer from "./components/Footer";
 import Sponsored from "./components/Sponsored";
 import FlashSales from "./components/FlashSales";
 
@@ -12,7 +11,7 @@ export default function Home() {
       <CarouselDemo />
 
       {/* <Hero/> */}
-      <Newest />
+     <Newest />
       <Sponsored/>
       <FlashSales/>
 

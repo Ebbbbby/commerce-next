@@ -4,15 +4,16 @@ import { BsFillSendFill, BsTelephoneOutbound } from "react-icons/bs";
 
 const Footer = () => {
   return (
-
     <footer className="border bg-gray-600 absolute w-full">
       <div className="container mx-auto">
-        <Link href="/" className="text-white ">
-          Lodge
+        <Link href="/">
+          <h1 className=" mt-2 text-xl md:text-3xl font-bold text-white">
+            Bee-<span className="text-primary">Commerce</span>
+          </h1>
         </Link>
-        <h4 className="font-semibold text-[40px] py-6 ">Contact</h4>
-        <div className="flex flex-wrap gap-16 items-center justify-between text-white">
-          <div className="flex-1">
+        <h4 className="font-semibold py-6 ">Contact</h4>
+        <div className="flex flex-wrap items-center justify-between  text-white">
+          <div className="">
             <p>You Road</p>
             <div className="flex items-center py-4">
               <BsFillSendFill />
