@@ -8,10 +8,11 @@ export interface ProductCart {
   price: number
   currency:string
   image: any
+  id:string
 
 }
 
-const AddToCart = ({name, description, price, image, currency}:ProductCart) => {
+const AddToCart = ({name, description, price, image, currency, id}:ProductCart) => {
   const {addItem, handleCartClick} = useShoppingCart()
   const product ={
     name:name,
@@ -19,7 +20,7 @@ const AddToCart = ({name, description, price, image, currency}:ProductCart) => {
     price:price,
     currency:currency,
     image:urlFor(image).url(),
-    id:'jjfuocr'
+    id:id
   }
   return (
     <Button onClick={()=> {addItem(product), handleCartClick()}}>Add to Cart</Button>

@@ -12,26 +12,26 @@ const ImageGallery = ({ images }: IAppProps) => {
     setBigImage(image);
   };
   return (
-    <div className="grid gap-4 border h-5/6 ">
+    <div className="grid gap-4 h-5/6 mt-4">
       <div className="flex rounded-md">
         <Image
-          className="object-cover object-center cursor-pointer w-full "
+          className="object-cover object-center cursor-pointer w-full rounded-md "
           src={urlFor(bigImage).url()}
-          alt={bigImage.description}
+          alt='big-image'
           width={500}
           height={500}
         />
       </div>
-      <div className="flex gap-x-4 border border-red-500">
+      <div className="inline-flex h-20 gap-x-4 mb-4">
         {images.map((image: any, index: any) => (
           <div
             key={index}
-            className="rounded-sm bg-gray-200 w-full h-3/6"
+            className="rounded-sm bg-gray-200 w-full h-full"
           >
             <Image
-              className="object-cover object-center cursor-pointer w-full h-full"
+              className="object-cover object-center cursor-pointer w-full h-full rounded-md"
               src={urlFor(image).url()}
-              alt={image.description}
+              alt='images'
               width={250}
               height={250}
               onClick={() => handleSmallImageClick(image)}

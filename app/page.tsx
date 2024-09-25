@@ -9,12 +9,10 @@ export default function Home() {
   return (
     <div className=" bg-white sm:pb-8">
       <CarouselDemo />
-
       {/* <Hero/> */}
-     <Newest />
-      <Sponsored/>
-      <FlashSales/>
-
+      <Newest />
+      <Sponsored />
+      <FlashSales />
     </div>
   );
 }

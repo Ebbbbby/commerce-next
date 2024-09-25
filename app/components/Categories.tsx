@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const links = [
   { name: "Men", href: "/Men"  },
   { name: "Women", href: "/Women" },
-  { name: "Teans ", href: "/Teens" },
+  { name: "Teens ", href: "/Teens" },
   { name: "Kiddies", href: "/Kiddies" },
   { name: "Sport Gears", href: "/SportsGears" },
 

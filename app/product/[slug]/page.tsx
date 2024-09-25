@@ -24,9 +24,9 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 md:px-4 ">
-        <div className="grid md:grid-cols-2 ">
+        <div className="grid md:grid-cols-2  gap-x-6">
           <ImageGallery images={data.images} />
-          <div className="md:py-8 border border-green-400">
+          <div className="md:py-4">
             <div className="mb-2 md:mb-3">
               <span className="mb-0.5 inline-block text-gray-500">
                 {" "}
@@ -65,9 +65,8 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
                 price={data?.price}
                 key={data?.price}
                 currency="USD"
+                id={data._id}
               />
-
-              <Button variant="outline">Buy Now</Button>
             </div>
             <p className="mt-12 text-xs text-gray-500 lg:text-sm tracking-wide">
               {data.description}

@@ -18,20 +18,6 @@ export default function ShoppinCartModal() {
     removeItem,
     redirectToCheckout,
   } = useShoppingCart();
-  // async function handleCheckoutClick(event: any) {
-  //   event.preventDefault();
-  //   try {
-  //       const result =   await redirectToCheckout();
-  //       if(result?.error){
-  //         console.error("Error while redirecting to checkout:", result.error);
-  //       }
-
-  //   } catch (error) {
-  //     console.error("Error redirecting to checkout:", error);
-
-  //   }
-
-  // }
   return (
     <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
       <SheetContent className="sm:max-w-lg w-[60vw]">
@@ -50,7 +36,7 @@ export default function ShoppinCartModal() {
                       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md">
                         <Image
                           src={item.image as string}
-                          alt={item.title}
+                          alt='cart-image'
                           width={100}
                           height={100}
                         />

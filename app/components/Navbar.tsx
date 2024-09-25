@@ -9,9 +9,8 @@ import { useState } from "react";
 import { LoginButton } from "@/components/auth/login-button";
 import Categories, { MobileCategories } from "./Categories";
 
-
 export default function Navbar() {
-  const { handleCartClick } = useShoppingCart();
+  const { cartCount, handleCartClick } = useShoppingCart();
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const handleOpenLoginModal = () => {
     setIsOpenLoginModal(true);
@@ -26,7 +25,7 @@ export default function Navbar() {
       <header className="border-b border-gray-200 w-full">
         <div className="flex items-center px-4 justify-between mx-auto py-3 sm:px-6 lg:max-w-7xl sm:w-full">
           <Link href="/">
-            <h1 className="text-xl md:text-3xl font-bold">
+            <h1 className="text-xl md:text-3xl font-bold text-gray-500">
               Bee-<span className="text-primary">Commerce</span>
             </h1>
           </Link>
@@ -44,11 +43,15 @@ export default function Navbar() {
             </LoginButton>
 
             {/* Cart Icon */}
-            <div className="flex items-center gap-x-2 cursor-pointer">
+            <div
+              onClick={() => handleCartClick()}
+              className="relative flex items-center gap-x-2 cursor-pointer"
+            >
               <MdOutlineShoppingCart className="text-3xl text-gray-500" />
-              <span className="hidden text-xs font-semibold text-gray-500 sm:block">
-                Cart
+              <span className=" absolute bg-gray-500 right-1 top-0  text-xs font-semibold text-white lg:block px-2 rounded-lg sm:block">
+                {cartCount}
               </span>
+              <div className="bg-primary w-4 flex items-center  mx-auto"></div>
             </div>
           </div>
         </div>
@@ -65,8 +68,6 @@ export default function Navbar() {
       <div className=" flex md:hidden">
         <MobileCategories />
       </div>
-
-
     </>
   );
 }
